@@ -28,14 +28,14 @@
 </bean>
 -->
 <bean id="a1" class="com.example.demo.Address">
-<constructor-arg value="ghaziabad"></constructor-arg>
-<constructor-arg value="UP"></constructor-arg>
-<constructor-arg value="India"></constructor-arg>
+<constructor-arg value="MohisKhuja"></constructor-arg>
+<constructor-arg value="Aditmari"></constructor-arg>
+<constructor-arg value="lalmonirhat"></constructor-arg>
 </bean>
 
 
 <bean id="e" class="com.example.demo.Employee">
-<constructor-arg value="12" type="int"></constructor-arg>
+<constructor-arg value="12" ></constructor-arg>
 <constructor-arg value="Shamim"></constructor-arg>
 <constructor-arg>
 <ref bean="a1"/>
