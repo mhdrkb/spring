@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template/template.xhtml">
+		<ui:define name="content">
+			
+			
+			
+				<h:form id="form1" style="">
+					<p:growl id="messages" showDetail="true" />
+
+
+					<p:panel id="panel">
+					<br/>
+   					
+
+
+						<h:panelGrid id="display" columns="2" cellpadding="4">
+
+							<h:outputText value="Email" for="email"
+								style="padding-left: 30px; padding-right: 30px;" />
+
+							<p:inputText id="email" value="#{studentMB.bean.email}"
+								required="true" label="Email"
+								requiredMessage="Required" />
+										
+
+							
+
+							<p:outputPanel layout="block" style="text-align:center">
+							<br />
+							<br />
+							<p:commandButton value="Reset" styleClass=""
+								update=":form1:panel" process="@this"
+								actionListener="#{studentMB.reset}" />
+							<p:commandButton value="Save" styleClass="" type="submit"
+								actionListener="#{studentMB.save}"
+								update=":form1:messages, :form1:panel" />
+						</p:outputPanel>
+
+
+						
+						</h:panelGrid>
+
+
+
+
+
+
+						
+
+
+
+
+					</p:panel>
+
+				</h:form> 
+			
+		</ui:define>
+</ui:composition>

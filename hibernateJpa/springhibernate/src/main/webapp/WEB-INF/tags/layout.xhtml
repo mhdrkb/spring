@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	>
+   <h:head>
+   <ui:param name="root" value="#{request.contextPath}/" />
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			
+	<!-- Latest compiled and minified CSS -->
+	<link rel="shortcut icon" type="image/png" href="http://www.primefaces.org/showcase/resources/main/images/favicon.png"></link>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"></link>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- Overriding default CSS of primefaces -->
+	<style>
+	.ui-widget {
+	font-size: 14px;
+	}
+	</style>
+			
+			
+			
+			<title>Spring PrimeFaces Tutorial</title>
+   
+   </h:head>
+   <h:body> 
+   	<div class="container">
+ 
+ 	<!-- Header Facelets -->
+         <ui:insert name="header" >
+            <ui:include src="/WEB-INF/tags/header.xhtml" />
+         </ui:insert> 
+
+		<hr></hr>
+
+      	<div class="container-fluid" style="min-height:300px">
+      	<!-- Content Facelets -->
+         	<ui:insert name="content" >
+            
+         	</ui:insert>   
+         </div> 
+     
+     	<!-- Footer Facelets -->
+         <ui:insert name="footer" >
+            <ui:include src="/WEB-INF/tags/footer.xhtml" />
+         </ui:insert>
+    
+      </div>
+   </h:body>
+</html>
