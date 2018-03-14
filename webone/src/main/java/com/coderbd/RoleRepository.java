@@ -1,0 +1,7 @@
+package com.coderbd;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface RoleRepository extends CrudRepository<Role, Long> {
+	
+	}
