@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Add Role Form</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form th:action="@{/}" method="get">
+		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Home Page</button>
+	</form>	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<form autocomplete="off" action="#" th:action="@{/role}"
+					th:object="${role}" method="post" class="form-horizontal"
+					role="form">
+					<h2>Add Role</h2>
+					<div class="form-group">
+						<div class="col-sm-9">
+						<label th:if="${#fields.hasErrors('roleName')}" th:errors="*{roleName}"
+								class="validation-message"></label>
+						<input type="text" th:field="*{roleName}" placeholder="Role Name"
+								class="form-control" /> 
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-sm-9">
+							<button type="submit" class="btn btn-primary btn-block">Add</button>
+						</div>
+					</div>
+					
+					<span th:utext="${successMessage}"></span>
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+    <div th:if="${not #lists.isEmpty(roles)}">
+        <h2>All Roles</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+               
+            </tr>
+            <tr th:each="role : ${roles}">
+                <td th:text="${role.id}">Id</td>
+                <td th:text="${role.roleName}">Role</td>
+              
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
