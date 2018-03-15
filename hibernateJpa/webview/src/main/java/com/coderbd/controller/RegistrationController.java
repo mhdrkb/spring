@@ -55,8 +55,8 @@ public class RegistrationController {
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("regi");
 		} else {
-			Role r=new Role();
-			r.setId(roleID);
+			
+			r.setId(1);
 			user.setRole(r);
 			user.setActive(1);
 			userRepository.save(user);
