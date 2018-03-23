@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+	<sec:authorize access="isAuthenticated()">
+    <meta http-equiv="refresh" content="0;url=http://localhost:8008/school/" /> 
+</sec:authorize>
+	<title>PrimeFaces Volt</title>
+	<ui:insert name="head" />
+</h:head>
+
+<h:body styleClass="BlueBody">
+
+	<div class="Container100">
+		<div class="Container100">
+			<div class="Wid40 OvHidden DispBlock MarAuto WidAutoOnMobile customshadow"
+				style="margin-top: 7%;">
+				<div class="Card ShadowEffect">
+					<div class="Container100">
+						<div class="Card PinkBack White TexAlCenter Fs20 FontVoltBold">User Log
+							In</div>
+					</div>
+
+				
+					<div class="Container100 Responsive100">
+						<form method="post" action="${request.contextPath}/perform_login">
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+
+							<div class="Card TexAlCenter">
+								<i class="icon-unlocked2 Fs60 TealGreen"></i>
+								<div class="EmptyBox10"></div>
+								<input placeholder="Username" name="username" type="text" size="70" class="loginInput" />
+								<div class="EmptyBox10"></div>
+								<input placeholder="Password" name="password" type="password"
+									value="" size="70"  class="loginInput"/>
+								<div><br/></div>
+								<div class="btn-block">
+								<input type="submit" value="Sign in" class="btn-sign-in"/>
+								</div>
+								<div><br/></div>
+								<span class="Fs14"> Lost your password ? - <p:link
+										value="Get New !" /></span>
+							</div>
+
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h:outputStylesheet name="css/core-layout.css" library="volt-layout" />
+	<h:outputStylesheet name="css/animate.css" library="volt-layout" />
+	<h:outputStylesheet name="css/volt-font.css" library="volt-layout" />
+	<h:outputStylesheet name="css/font-awesome.css" library="volt-layout" />
+	<h:outputStylesheet name="css/volt-layout.css" library="volt-layout" />
+</h:body>
+
+</html>
