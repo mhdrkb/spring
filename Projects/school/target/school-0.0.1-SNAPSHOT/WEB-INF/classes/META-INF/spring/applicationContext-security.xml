@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+
+
+
+	<http auto-config="true" use-expressions="true">
+	<intercept-url pattern="/views/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_SUPER')" />
+	
+		<form-login login-page="/login.do" default-target-url="/" always-use-default-target="true" login-processing-url="/perform_login" />
+	<logout logout-url="/logout" invalidate-session="true"/>
+	<!-- enable csrf protection -->
+	  <csrf disabled="true"/>
+
+<headers/>
+	</http>
+
+	<!-- Select users and user_roles from database -->
+
+
+	<authentication-manager>
+	<!-- 	<authentication-provider>
+		<jdbc-user-service data-source-ref="dataSource"
+		  users-by-username-query=
+		    "select username,password, enabled from users where username=? And enabled=true"
+		  authorities-by-username-query=
+		    "select username, roleName from users_role where username =?  " />
+	  </authentication-provider> -->
+		
+		<authentication-provider>
+	    	<password-encoder hash="md5"/>
+	        <user-service>
+	        <!-- role admin with admin as username and admin as password -->
+	        <!-- role super with super as username and admin as password -->
+	            <user name="super" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_SUPER"/>
+	             <user name="owner" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_OWNER"/>
+	             <user name="admin" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_ADMIN"/>
+	              <user name="accountant" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_ACCOUNTANT"/>
+	               <user name="operator" password="21232f297a57a5a743894a0e4a801fc3" authorities="ROLE_OPERATOR"/>
+	                <user name="teacher" password="21232f297a57a5a743894a0e4a801fc3"
+	authorities="ROLE_TEACHER" />
+		  		        <user name="user" password="ee11cbb19052e40b07aac0ca060c23ee" authorities="ROLE_USER"/>
+		    </user-service>
+    	</authentication-provider>
+	</authentication-manager>
+
+<global-method-security pre-post-annotations="enabled"/>
+	
+
+
+
+
+</beans:beans>
+

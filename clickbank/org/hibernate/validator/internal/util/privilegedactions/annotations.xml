@@ -1,0 +1,5 @@
+<root>
+    <item name='org.hibernate.validator.internal.util.privilegedactions.GetMethod'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

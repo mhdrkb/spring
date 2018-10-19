@@ -1,0 +1,74 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/template/template.xhtml">
+
+
+	<ui:define name="content">
+		<h:form id="form1" style="">
+			<p:growl id="messages" showSummary="true" />
+			<p:panel id="panel">
+				<br />
+				<h:panelGrid id="display" columns="2" cellpadding="4">
+
+					<h:outputText value="Name" for="name"
+						style="padding-left: 30px; padding-right: 30px;" />
+					<p:inputText id="name" value="#{userMB.bean.name}" label="Name" />
+
+					<h:outputText value="Username" for="username"
+						style="padding-left: 30px; padding-right: 30px;" />
+					<p:inputText id="Username" value="#{userMB.bean.username}"
+						label="username" />
+
+					<h:outputText value="Password" for="password"
+						style="padding-left: 30px; padding-right: 30px;" />
+					<p:inputText id="password" value="#{userMB.bean.password}"
+						label="Password" />
+
+
+					<h:outputText value="Email" for="email"
+						style="padding-left: 30px; padding-right: 30px;" />
+					<p:inputText id="email" value="#{userMB.bean.email}"
+						label="Email" />
+
+
+
+ <p:outputLabel for="roles" value="Roles:" />
+        <p:selectManyMenu id="roles" value="#{userMB.roles}"> 
+            <f:selectItem itemLabel="Select Some Roles" itemValue="" />
+          <f:selectItems value="#{roleMB.list}" var="role" itemLabel="#{role.roleName}" itemValue="#{role.id}"/>
+        </p:selectManyMenu>
+        
+					<p:outputPanel layout="block" style="text-align:center">
+						<br />
+						<br />
+						<p:commandButton value="Reset" styleClass="" update=":form1:panel"
+							process="@this" actionListener="#{userMB.reset}" />
+						<p:commandButton value="Save" styleClass=""
+							actionListener="#{userMB.insert}" type="submit"
+							update=":form1:messages, :form1:panel :form1" />
+					</p:outputPanel>
+
+
+
+				</h:panelGrid>
+
+
+
+
+
+
+
+
+
+
+
+			</p:panel>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

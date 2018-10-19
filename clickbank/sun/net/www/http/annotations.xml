@@ -1,0 +1,5 @@
+<root>
+    <item name='sun.net.www.http.HttpClient'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
